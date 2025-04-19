@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MoirasDev | Developer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-white font-sans">
+  <!-- Navbar -->
+  <header class="flex justify-between items-center px-8 py-4 bg-[#2B1E4A] shadow-lg">
+    <h1 class="text-2xl font-bold text-purple-400">MoirasDev</h1>
+    <nav class="space-x-4">
+      <a href="#about" class="hover:text-purple-300">ABOUT ME</a>
+      <a href="#skills" class="hover:text-purple-300">SKILLS</a>
+      <a href="#projects" class="hover:text-purple-300">PROJECTS</a>
+      <a href="#cv" class="hover:text-purple-300">CV</a>
+      <a href="#contact" class="hover:text-purple-300">CONTACTS</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="hero" class="text-center py-28 bg-gradient-to-b from-[#2B1E4A] to-purple-900">
+    <h2 class="text-5xl font-extrabold mb-4">Hello, I am <span class="text-purple-400">MoirasDev</span></h2>
+    <p class="text-xl text-gray-300 max-w-2xl mx-auto">I am a young indie game developer who designs impressive FPS and Multiplayer experiences with Unreal Engine 5.</p>
+  </section>
+
+  <!-- Hakkımda -->
+  <section id="about" class="py-20 px-4">
+    <div class="max-w-4xl mx-auto">
+    <h3 class="text-3xl font-bold mb-6 text-purple-400">Hakkımda</h3>
+    <p class="text-lg text-gray-300 leading-relaxed">
+      I am 18 years old and I have been in the game development world for 5 years. I create game mechanics with Unreal Engine 5, do 3D packaging and animation with Blender. I focus on FPS and Multiplayer projects.
+    </p>
+  </section>
+
+  <!-- Yetenekler -->
+  <section id="skills" class="bg-[#2B1E4A] py-20 px-4">
+    <div class="max-w-4xl mx-auto">
+      <h3 class="text-3xl font-bold mb-6 text-purple-400">Skills</h3>
+      <div class="flex flex-wrap gap-4">
+        <span class="bg-purple-800 text-purple-100 px-4 py-2 rounded-lg hover:shadow-[0_0_20px] hover:shadow-purple-400 transition">Unreal Engine 5</span>
+        <span class="bg-purple-800 text-purple-100 px-4 py-2 rounded-lg hover:shadow-[0_0_20px] hover:shadow-purple-400 transition">Blender</span>
+        <span class="bg-purple-800 text-purple-100 px-4 py-2 rounded-lg hover:shadow-[0_0_20px] hover:shadow-purple-400 transition">3D Artist</span>
+        <span class="bg-purple-800 text-purple-100 px-4 py-2 rounded-lg hover:shadow-[0_0_20px] hover:shadow-purple-400 transition">Animator</span>
+        <span class="bg-purple-800 text-purple-100 px-4 py-2 rounded-lg hover:shadow-[0_0_20px] hover:shadow-purple-400 transition">Blueprinter</span>
+        <span class="bg-purple-800 text-purple-100 px-4 py-2 rounded-lg hover:shadow-[0_0_20px] hover:shadow-purple-400 transition">FPS Focus</span>
+        <span class="bg-purple-800 text-purple-100 px-4 py-2 rounded-lg hover:shadow-[0_0_20px] hover:shadow-purple-400 transition">Multiplayer Focus</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projeler -->
+  <section id="projects" class="py-20 px-4">
+    <div class="max-w-4xl mx-auto">
+      <h3 class="text-3xl font-bold mb-8 text-purple-400">Projects</h3>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Örnek Proje -->
+        <div class="bg-gray-800 p-6 rounded-2xl hover:shadow-[0_0_25px] hover:shadow-purple-400 transition">
+          <img src="assets/images/örnek-proje.png" alt="" class="rounded mb-4">
+          <h4 class="text-xl font-semibold text-white">Soldier Wolves</h4>
+          <p class="text-gray-400 mb-4">Multiplayer FPS Shooter </p>
+          <a href="#" class="inline-block text-purple-550 hover:underline">GitHub</a>
+        </div>
+       <!-- Örnek Proje -->
+        <div class="bg-gray-800 p-6 rounded-2xl hover:shadow-[0_0_25px] hover:shadow-purple-400 transition">
+          <img src="assets/images/örnek-proje.png" alt="" class="rounded mb-4">
+          <h4 class="text-xl font-semibold text-white">Beyond The Ruins</h4>
+          <p class="text-gray-400 mb-4">Multiplayer FPS Survival  </p>
+          <a href="#" class="inline-block text-purple-550 hover:underline">Steam</a>
+        </div>
+       <!-- Örnek Proje -->
+       <div class="bg-gray-800 p-6 rounded-2xl hover:shadow-[0_0_25px] hover:shadow-purple-400 transition">
+       <img src="assets/images/örnek-proje.png" alt="" class="rounded mb-4">
+       <h4 class="text-xl font-semibold text-white">Chained Chickens</h4>
+       <p class="text-gray-400 mb-4">Multiplayer Parkour  </p>
+      <a href="#" class="inline-block text-purple-550 hover:underline">Download</a>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CV -->
+  <section id="cv" class="bg-[#2B1E4A] py-20 px-4 text-center">
+    <h3 class="text-4xl font-bold mb-6 text-purple-400">CV / Profile</h3>
+    <div class="mb-6">
+      <img src="assets/images/cv-preview.png" alt="CV" class="mx-auto w-[210mm] h-auto rounded-lg shadow-lg">
+    </div>
+    <a href="cv.pdf" class="bg-purple-600 hover:bg-purple-700 hover:shadow-[0_0_20px] hover:shadow-purple-400 text-white px-8 py-3 rounded-full transition inline-block" download>Download CV</a>
+  </section>
+
+  <!-- İletişim -->
+  <section id="contact" class="py-20 px-4">
+    <div class="max-w-4xl mx-auto">
+      <h3 class="text-3xl font-bold mb-6 text-purple-400">Contacts</h3>
+      <ul class="space-y-4 text-lg text-gray-200">
+        <li class="flex items-center space-x-3">
+          <img src="assets/icons/email.svg" alt="Gmail" class="w-6 h-6">
+          <a href="mailto:moirasdev@gmail.com" class="hover:text-purple-550">moirasdev@gmail.com</a>
+        </li>
+        <li class="flex items-center space-x-3">
+          <img src="assets/icons/instagram.svg" alt="Instagram" class="w-6 h-6">
+          <a href="https://www.instagram.com/mustafa_koroglugil" class="hover:text-purple-550">@mustafa_koroglugil</a>
+        </li>
+        <li class="flex items-center space-x-3">
+          <img src="assets/icons/discord.svg" alt="Discord" class="w-6 h-6">
+          <a href="https://discord.com/users/moiras0" class="hover:text-purple-550">@moiras0</a>
+        </li>
+        <li class="flex items-center space-x-3">
+          <img src="assets/icons/youtube.svg" alt="YouTube" class="w-6 h-6">
+          <a href="https://www.youtube.com/@MoirasDev" class="hover:text-purple-550">@MoirasDev</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="text-center py-6 bg-[#2B1E4A] text-gray-500 text-sm">&copy; 2025 MoirasDev</footer>
+</body>
+</html>
