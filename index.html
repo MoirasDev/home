@@ -18,7 +18,7 @@
       <a href="#contact" class="hover:text-purple-300">CONTACTS</a>
     </nav>
   </header>
-
+  
  <!-- Hero -->
 <section id="hero" class="text-center py-28 bg-gradient-to-b from-gray-900 to-purple-950">
   <h2 class="text-5xl font-extrabold mb-4">Merhaba, ben <span class="text-purple-400">MoirasDev</span></h2>
@@ -28,11 +28,11 @@
 
    <!-- Like Butonu -->
    <div>
-    <button id="like-btn" onclick="sendLike()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-3 rounded-full shadow-purple-500 shadow-md transition font-medium">
-       <span id="like-count" class="ml-1 bg-purple-600 text-purple-100 px-2 rounded-full">0</span> 
+    <button id="like-btn" onclick="sendLike()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-3 rounded-full shadow-md transition font-medium hover:shadow-[0_0_10px] hover:shadow-purple-400">
+        👍 
     </button>
    
-    <h3 class="text-3xl font-sans mb-4 text-purple-400" id="like-count">0 People Recommend👍</h3>
+    <h3> <span id="like-count" class="text-3xl text-purple-700 font-bold">0</span> <span class="text-2xl font-sans">People Recommended me</span> </h3>
   </div>
   </section>
 
@@ -50,13 +50,13 @@
     <div class="max-w-4xl mx-auto">
       <h3 class="text-3xl font-bold mb-6 text-purple-400">Skills</h3>
       <div class="flex flex-wrap gap-4">
-        <span class="bg-purple-800 text-purple-100 px-4 py-2 rounded-lg hover:shadow-[0_0_20px] hover:shadow-purple-400 transition">Unreal Engine 5</span>
-        <span class="bg-purple-800 text-purple-100 px-4 py-2 rounded-lg hover:shadow-[0_0_20px] hover:shadow-purple-400 transition">Blender</span>
-        <span class="bg-purple-800 text-purple-100 px-4 py-2 rounded-lg hover:shadow-[0_0_20px] hover:shadow-purple-400 transition">3D Artist</span>
-        <span class="bg-purple-800 text-purple-100 px-4 py-2 rounded-lg hover:shadow-[0_0_20px] hover:shadow-purple-400 transition">Animator</span>
-        <span class="bg-purple-800 text-purple-100 px-4 py-2 rounded-lg hover:shadow-[0_0_20px] hover:shadow-purple-400 transition">Blueprinter</span>
-        <span class="bg-purple-800 text-purple-100 px-4 py-2 rounded-lg hover:shadow-[0_0_20px] hover:shadow-purple-400 transition">FPS Focus</span>
-        <span class="bg-purple-800 text-purple-100 px-4 py-2 rounded-lg hover:shadow-[0_0_20px] hover:shadow-purple-400 transition">Multiplayer Focus</span>
+        <span class="bg-purple-800 text-purple-100 px-4 py-2 rounded-lg shadow-md hover:shadow-[0_0_20px] hover:shadow-purple-400 transition">Unreal Engine 5</span>
+        <span class="bg-purple-800 text-purple-100 px-4 py-2 rounded-lg shadow-md hover:shadow-[0_0_20px] hover:shadow-purple-400 transition">Blender</span>
+        <span class="bg-purple-800 text-purple-100 px-4 py-2 rounded-lg shadow-md hover:shadow-[0_0_20px] hover:shadow-purple-400 transition">3D Artist</span>
+        <span class="bg-purple-800 text-purple-100 px-4 py-2 rounded-lg shadow-md hover:shadow-[0_0_20px] hover:shadow-purple-400 transition">Animator</span>
+        <span class="bg-purple-800 text-purple-100 px-4 py-2 rounded-lg shadow-md hover:shadow-[0_0_20px] hover:shadow-purple-400 transition">Blueprinter</span>
+        <span class="bg-purple-800 text-purple-100 px-4 py-2 rounded-lg shadow-md hover:shadow-[0_0_20px] hover:shadow-purple-400 transition">FPS Focus</span>
+        <span class="bg-purple-800 text-purple-100 px-4 py-2 rounded-lg shadow-md hover:shadow-[0_0_20px] hover:shadow-purple-400 transition">Multiplayer Focus</span>
       </div>
     </div>
   </section>
@@ -130,19 +130,27 @@
 </html>
 
 <script>
-  const namespace = 'moirasdev';
+  const namespace = 'moirasdev-portfolio-v1'; // Herkese özel olmalı
   const key = 'likes';
   const storageKey = 'moirasdev_liked';
 
+  // İlk istek: like verip sayacı başlatıyoruz (ilk seferde)
   fetch(`https://api.countapi.xyz/get/${namespace}/${key}`)
-    .then(res => res.json())
+    .then(res => {
+      if (!res.ok) {
+        // Key yoksa ilk değeri 0 olarak başlatmak için "create" alternatifi:
+        return fetch(`https://api.countapi.xyz/create?namespace=${namespace}&key=${key}&value=0`)
+          .then(() => ({ value: 0 }));
+      }
+      return res.json();
+    })
     .then(data => {
       document.getElementById('like-count').innerText = data.value;
     });
 
   function sendLike() {
     if (localStorage.getItem(storageKey)) {
-      alert("You already recommended me 💜");
+      alert("Zaten öneride bulundun 💜");
       return;
     }
 
@@ -157,7 +165,7 @@
   }
 
   if (localStorage.getItem(storageKey)) {
-    document.addEventListener("DOMContentLoaded", () => {
+    window.addEventListener("DOMContentLoaded", () => {
       const btn = document.getElementById('like-btn');
       if (btn) {
         btn.disabled = true;
