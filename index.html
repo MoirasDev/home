@@ -21,25 +21,15 @@
   
  <!-- Hero -->
 <section id="hero" class="text-center py-28 bg-gradient-to-b from-gray-900 to-purple-950">
-  <h2 class="text-5xl font-extrabold mb-4">Merhaba, ben <span class="text-purple-400">MoirasDev</span></h2>
+  <h2 class="text-5xl font-extrabold mb-4">Hello, I am <span class="text-purple-400">MoirasDev</span></h2>
   <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-6">
-    Unreal Engine 5 ile etkileyici FPS ve Multiplayer deneyimler tasarlayan 18 yaşında bir oyun geliştiriciyim.
+    I am a young indie game developer who designs impressive FPS and Multiplayer experiences with Unreal Engine 5.
   </p>
-
-   <!-- Like Butonu -->
-   <div>
-    <button id="like-btn" onclick="sendLike()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-3 rounded-full shadow-md transition font-medium hover:shadow-[0_0_10px] hover:shadow-purple-400">
-        👍 
-    </button>
-   
-    <h3> <span id="like-count" class="text-3xl text-purple-700 font-bold">0</span> <span class="text-2xl font-sans">People Recommended me</span> </h3>
-  </div>
-  </section>
 
   <!-- Hakkımda -->
   <section id="about" class="py-20 px-4">
     <div class="max-w-4xl mx-auto">
-    <h3 class="text-3xl font-bold mb-6 text-purple-400">Hakkımda</h3>
+    <h3 class="text-3xl font-bold mb-6 text-purple-400">About Me</h3>
     <p class="text-lg text-gray-300 leading-relaxed">
       I am 18 years old and I have been in the game development world for 5 years. I create game mechanics with Unreal Engine 5, do 3D packaging and animation with Blender. I focus on FPS and Multiplayer projects.
     </p>
@@ -128,50 +118,3 @@
   <footer class="text-center py-6 bg-[#2B1E4A] text-gray-500 text-sm">&copy; 2025 MoirasDev</footer>
 </body>
 </html>
-
-<script>
-  const namespace = 'moirasdev-portfolio-v1'; // Herkese özel olmalı
-  const key = 'likes';
-  const storageKey = 'moirasdev_liked';
-
-  // İlk istek: like verip sayacı başlatıyoruz (ilk seferde)
-  fetch(`https://api.countapi.xyz/get/${namespace}/${key}`)
-    .then(res => {
-      if (!res.ok) {
-        // Key yoksa ilk değeri 0 olarak başlatmak için "create" alternatifi:
-        return fetch(`https://api.countapi.xyz/create?namespace=${namespace}&key=${key}&value=0`)
-          .then(() => ({ value: 0 }));
-      }
-      return res.json();
-    })
-    .then(data => {
-      document.getElementById('like-count').innerText = data.value;
-    })
-  .catch(err => console.error("Fetch hatası:", err));;
-
-  function sendLike() {
-    if (localStorage.getItem(storageKey)) {
-      alert("Zaten öneride bulundun 💜");
-      return;
-    }
-
-    fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById('like-count').innerText = data.value;
-        localStorage.setItem(storageKey, 'true');
-        document.getElementById('like-btn').disabled = true;
-        document.getElementById('like-btn').classList.add('opacity-50', 'cursor-not-allowed');
-      });
-  }
-
-  if (localStorage.getItem(storageKey)) {
-    window.addEventListener("DOMContentLoaded", () => {
-      const btn = document.getElementById('like-btn');
-      if (btn) {
-        btn.disabled = true;
-        btn.classList.add('opacity-50', 'cursor-not-allowed');
-      }
-    });
-  }
-</script>
