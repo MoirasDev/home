@@ -146,7 +146,8 @@
     })
     .then(data => {
       document.getElementById('like-count').innerText = data.value;
-    });
+    })
+  .catch(err => console.error("Fetch hatası:", err));;
 
   function sendLike() {
     if (localStorage.getItem(storageKey)) {
